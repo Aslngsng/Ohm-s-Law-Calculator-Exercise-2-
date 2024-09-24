@@ -3,3 +3,34 @@
 # Use Ohm's Law to calculate the missing variable and display the result.
 # Handle cases where division by zero might occur.
 
+print("\nChoose a formula you want to perform: \nVOLTAGE, CURRENT, OR RESISTANCE")
+
+chosen_formula = input("What formula would you like to choose? ").upper()
+if chosen_formula not in ["VOLTAGE", "CURRENT", "RESISTANCE"]:
+    raise ValueError("Sorry, Formula is not available.")
+
+
+if chosen_formula == "VOLTAGE":
+    current = float(input("Enter current (I): "))  
+    resistance = float(input("Enter resistance (R): "))  
+    result = current * resistance
+    print("The Voltage is " + str(result))
+
+elif chosen_formula == "RESISTANCE":
+    voltage = float(input("Enter voltage (V) : "))   
+    current = float(input("Enter current (I) : "))  
+    if current == 0:
+        raise ValueError("Sorry, You are dividing by zero.")
+    result = voltage / current
+    print("The Resistance is " + str(result))
+
+elif chosen_formula == "CURRENT":
+    voltage = float(input("Enter voltage (V) : ")) 
+    resistance = float(input("Enter resistance (R) : "))
+    if resistance == 0:
+        raise ValueError("Sorry! You are dividing by zero.")
+    result = voltage / resistance
+    print("The Current is " + str(result))
+
+else:
+    print("Sorry, Invalid Option.")
